@@ -1,0 +1,33 @@
+{
+    "name": "@berea/web",
+    "version": "0.1.0",
+    "dependencies": {
+        "@berea/data": "github:assertchris/berea-data",
+        "@zeit/next-css": "^1.0.1",
+        "dotenv": "^8.0.0",
+        "express": "^4.17.1",
+        "next": "^8.1.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-swipeable": "^5.3.0"
+    },
+    "scripts": {
+        "dev": "node server.js",
+        "build": "next build",
+        "start": "NODE_ENV=production node server.js",
+        "sync": "rsync --delete --recursive --include='.*' . forge@[domain]:/home/forge/[domain]",
+        "deploy": "npm run build && npm run sync && npm run kill:remote",
+        "kill:remote": "ssh forge@[domain] 'npm run kill:local --prefix /home/forge/[domain]'",
+        "kill:local": "kill $(pgrep -lf [tag] | awk '{print $1}')"
+    },
+    "author": "Christopher Pitt <cgpitt@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^9.6.0",
+        "postcss-custom-properties": "^9.0.1",
+        "postcss-import": "^12.0.1",
+        "postcss-nested": "^4.1.2",
+        "prop-types": "^15.7.2",
+        "tailwindcss": "^1.0.4"
+    }
+}
