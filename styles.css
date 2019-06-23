@@ -28,7 +28,27 @@ hr {
     }
 
     .hebrew {
-        @apply text-lg;
         @apply font-bold;
+        @apply relative;
+        direction: rtl;
+    }
+
+    .verse {
+        font-size: 0px;
+
+        .content,
+        .bd,
+        .add {
+            @apply relative;
+            @apply text-lg;
+        }
+
+        .bd {
+            @apply font-semibold;
+        }
+
+        .add {
+            @apply italic;
+        }
     }
 }
