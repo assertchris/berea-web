@@ -16,10 +16,10 @@
         "dev": "node server.js",
         "build": "next build",
         "start": "NODE_ENV=production node server.js",
-        "sync": "rsync --delete --recursive --include='.*' . forge@[domain]:/home/forge/[domain]",
+        "sync": "rsync --delete --recursive --include='.*' . forge@scriptures.assertchris.io:/home/forge/scriptures.assertchris.io",
         "deploy": "npm run build && npm run sync && npm run kill:remote",
-        "kill:remote": "ssh forge@[domain] 'npm run kill:local --prefix /home/forge/[domain]'",
-        "kill:local": "kill $(pgrep -lf [tag] | awk '{print $1}')"
+        "kill:remote": "ssh forge@scriptures.assertchris.io 'npm run kill:local --prefix /home/forge/scriptures.assertchris.io'",
+        "kill:local": "kill $(pgrep -lf scriptures_assertchris_io | awk '{print $1}')"
     },
     "author": "Christopher Pitt <cgpitt@gmail.com>",
     "license": "MIT",
